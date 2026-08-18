@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Final project - task 1</title>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <div>
+            <h2>Test</h2>
+            <label for="inputPair">Name/Value Pair
+                <div class="text-input-wrapper">
+                    <input type="text" name="inputPair" id="inputPair" required>
+                    <button id="addButton" type="button">Add</button>
+                </div>
+            </label>
+        </div>
+        <div>
+            <label for="inputPair">Name/Value Pair list
+                <div class="text-area-wrapper">
+                    <textarea name="boxPair" id="boxPair"></textarea>
+                    <div class="button-container">
+                        <button id="sortByNameButton">Sort by Name</button>
+                        <button id="sortByValueButton">Sort by Value</button>
+                        <button id="deleteButton">Delete</button>
+                    </div>
+                </div>
+            </label>
+
+        </div>
+    </div>
+</div>
+<script src="index.js" type="module"></script>
+</body>
+</html>
