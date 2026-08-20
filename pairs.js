@@ -6,12 +6,15 @@ function parsePair(text) {
     return {name: match[1], value: match[2]};
 }
 
-function sortByName(pairs) {
-    return [...pairs].sort((a, b) => a.name.localeCompare(b.name));
+function sortBy(pairs, callback) {
+    return [...pairs].sort(callback);
 }
 
-function sortByValue(pairs) {
-    return [...pairs].sort((a, b) => a.value.localeCompare(b.value));
-}
+const sortByName = (pairs) => {
+    return sortBy(pairs, (a, b) => a.name.localeCompare(b.name))
+};
+const sortByValue = (pairs) => {
+    return sortBy(pairs, (a, b) => a.value.localeCompare(b.value))
+};
 
 export {parsePair, sortByName, sortByValue};
