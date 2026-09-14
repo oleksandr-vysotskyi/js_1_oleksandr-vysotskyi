@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Final project - task 1</title>
 </head>
 <body>
@@ -21,17 +21,15 @@
             </label>
         </div>
         <div>
-            <label for="inputPair">Name/Value Pair list
-                <div class="text-area-wrapper">
-                    <textarea name="boxPair" id="boxPair"></textarea>
-                    <div class="button-container">
-                        <button id="sortByNameButton">Sort by Name</button>
-                        <button id="sortByValueButton">Sort by Value</button>
-                        <button id="deleteButton">Delete</button>
-                    </div>
+            <label>Name/Value Pair list</label>
+            <div class="text-area-wrapper">
+                <select id="pairsList" class="pairs-list" multiple size="10" aria-label="Name/value pair list"></select>
+                <div class="button-container">
+                    <button id="sortByNameButton" type="button">Sort by Name</button>
+                    <button id="sortByValueButton" type="button">Sort by Value</button>
+                    <button id="deleteButton" type="button">Delete</button>
                 </div>
-            </label>
-
+            </div>
         </div>
     </div>
 </div>
