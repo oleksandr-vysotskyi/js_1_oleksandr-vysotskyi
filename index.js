@@ -7,16 +7,24 @@ function getElementById(id) {
 
 const input = getElementById('inputPair');
 const addButton = getElementById('addButton');
-const textArea = getElementById('boxPair');
+const pairsList = getElementById('pairsList');
 const sortByNameButton = getElementById('sortByNameButton');
 const sortByValueButton = getElementById('sortByValueButton');
 const deleteButton = getElementById('deleteButton');
 
 let pairs = [];
+let nextPairId = 1;
 
-// Renders the current pairs into the list box.
+// Renders the current pairs into the selectable list.
 function renderPairs() {
-    textArea.value = pairs.map(({ name, value }) => `${name}=${value}`).join('\n');
+    pairsList.innerHTML = '';
+
+    pairs.forEach(({ id, name, value }) => {
+        const option = document.createElement('option');
+        option.value = String(id);
+        option.textContent = `${name}=${value}`;
+        pairsList.appendChild(option);
+    });
 }
 
 addButton.onclick = (event) => {
@@ -30,7 +38,7 @@ addButton.onclick = (event) => {
     }
 
     input.setCustomValidity('');
-    pairs.push(pair);
+    pairs.push({ id: nextPairId++, ...pair });
     input.value = '';
     renderPairs();
 };
@@ -49,7 +57,14 @@ sortByValueButton.onclick = (event) => {
 
 deleteButton.onclick = (event) => {
     event.preventDefault();
-    pairs = [];
+
+    const selectedIds = new Set(
+        [...pairsList.selectedOptions].map((option) => Number(option.value))
+    );
+    if (selectedIds.size === 0) {
+        return;
+    }
+
+    pairs = pairs.filter(({ id }) => !selectedIds.has(id));
     renderPairs();
 };
-
